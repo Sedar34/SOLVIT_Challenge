@@ -1,0 +1,217 @@
+{
+    "info": {
+        "_postman_id": "b1e2c3d4-5678-1234-9abc-def012345678",
+        "name": "Blog Management API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Postman collection for testing all endpoints of the Blog Management API."
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:3000/api/v1/blog"
+        }
+    ],
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/health",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "health"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Blog Post",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"title\": \"My First Blog Post\",\n  \"content\": \"This is the content of my blog post...\",\n  \"author\": \"John Doe\"\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/posts",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get All Blog Posts",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Blog Post by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        ":id"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Posts by Author",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts/author/:author",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        "author",
+                        ":author"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Search Posts by Keyword",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts/search?keyword=javascript",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        "search"
+                    ],
+                    "query": [
+                        {
+                            "key": "keyword",
+                            "value": "javascript"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Recent Posts",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts/recent?limit=5",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        "recent"
+                    ],
+                    "query": [
+                        {
+                            "key": "limit",
+                            "value": "5"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update Blog Post",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"title\": \"Updated Title\",\n  \"content\": \"Updated content...\",\n  \"author\": \"Updated Author\"\n}"
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/posts/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        ":id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Blog Post",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts/:id",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        ":id"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Blog Statistics",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/posts/stats",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "posts",
+                        "stats"
+                    ]
+                }
+            }
+        }
+    ]
+}
